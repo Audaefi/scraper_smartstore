@@ -1,5 +1,5 @@
-DRIVER_PATH = '/Users/audaefi/chromedriver/chromedriver'
-# '/usr/bin/chromedriver'
+#DRIVER_PATH = '/Users/audaefi/chromedriver/chromedriver'
+DRIVER_PATH = '/usr/bin/chromedriver'
 
 IMG_SRC_CSS = ".thumbnail_thumb__Bxb6Z > img"
 HREF_CSS = ".basicList_link__JLQJf"
