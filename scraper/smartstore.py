@@ -21,7 +21,7 @@ def main():
     build_df()
     for count in range(len(keyword)):
         build_driver()
-        scroll_range(0, 5000)
+        scroll_range(0, 6000)
         get_elements()
         multi_pages()
     df_to_csv()
@@ -31,8 +31,7 @@ def main():
 
 def build_driver():
     global driver
-    url = f'https://search.shopping.naver.com/search/all?exrental=true&exused=true&frm=NVSHCHK&npayType=2&origQuery={keyword[count]}&pagingIndex=1&pagingSize=20&productSet=checkout&query={keyword[count]}&sort=date&timestamp=&viewType=list'
-
+    url = f'https://search.shopping.naver.com/search/all?exrental=true&exused=true&frm=NVSHCHK&npayType=2&origQuery={keyword}&pagingIndex=1&pagingSize=80&productSet=checkout&query=asics&sort=date&timestamp=&viewType=thumb'
     headlessoptions = webdriver.ChromeOptions()
     headlessoptions.add_argument('headless')
     headlessoptions.add_argument('window-size=1920x1080')
@@ -47,7 +46,9 @@ def build_driver():
 
 
 def scroll_range(start_pixel, end_pixel):
-    for pixel in range(start_pixel, end_pixel, 1000):
+    #driver.execute_script("document.body.style.transform = 'scale(0.75)'")
+    time.sleep(2)
+    for pixel in range(start_pixel, end_pixel, 500):
         driver.execute_script(f"window.scrollTo(0, {pixel})")
         time.sleep(1.5)
 
@@ -82,7 +83,7 @@ def next_arrow_btn():
 def multi_pages():
     for page in range(pages - 1):
         next_arrow_btn()
-        scroll_range(0, 5000)
+        scroll_range(0, 6000)
         get_elements()
 
 
